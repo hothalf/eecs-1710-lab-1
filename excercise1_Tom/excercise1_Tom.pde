@@ -1,3 +1,4 @@
+@@ -0,0 +1,28 @@
 int x= 52;
 color bgcolor = color(255, 0 , 0);
 float circleSize = 100;
@@ -9,7 +10,8 @@ void draw() {
     fill(255,255,255);
   stroke(0,0,255);
   ellipseMode(CENTER);
-  ellipse(mouseX,mouseY,circleSize,circleSize);
+  x ++;
+  ellipse(mouseX,mouseY,something(x),something(x));
   
   
   if (mousePressed) {
@@ -23,6 +25,5 @@ void draw() {
 
 int something(int x){
 
-  x+=circleSize;
   return x;
 }
