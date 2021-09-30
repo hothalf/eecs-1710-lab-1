@@ -1,5 +1,5 @@
 PImage hell, demon, human;
-float x1, y1, x2, y2;
+float x1, y1, x2, y2, x3,x4,y3,y4;
 float speedX1, speedX2;
 
 void setup() {
@@ -14,7 +14,13 @@ void setup() {
   y2 = y1 - 50;
   speedX1 = 5;
   speedX2 = speedX1 * 0.5;
+  demon = loadImage("demon.png");
+  demon.resize(width/10, height/15);
+  human = loadImage("human.png");
+  human.resize(width/15, height/20);
   
+
+
 }
 
 void draw() {
@@ -25,10 +31,11 @@ void draw() {
   
   noTint();
   image(hell, x1, y1); // the image drawn last will be in front
-  demon = loadImage("demon.png");
-  demon.resize(demon.width * (height / demon.height), height);
-  human = loadImage("human.png");
-  human.resize(human.width * (height / human.height), height);
+ 
+  image(demon, mouseX, mouseY, x1, y1);
+
+  noTint();
+  image(human, x1, y1);
   x1 += speedX1;
   x2 += speedX2;
     
