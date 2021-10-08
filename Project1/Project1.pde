@@ -1,7 +1,7 @@
-PImage hell, demon, human;
+PImage hell
 float x1, y1, x2, y2, x3,x4,y3,y4;
 float speedX1, speedX2;
-
+human human = new human();
 void setup() {
   size(800, 600, P2D);
   hell = loadImage("hell.jpg");
@@ -29,18 +29,5 @@ void draw() {
   tint(255, 127);
   image(hell, x2, y2);
   
-  noTint();
-  image(hell, x1, y1); // the image drawn last will be in front
- 
-  image(demon, mouseX, mouseY, x1, y1);
 
-  noTint();
-  image(human, x1, y1);
-  x1 += speedX1;
-  x2 += speedX2;
-    
-  if (x1 > width || x1 < 0) {
-    speedX1 *= -1;  
-    speedX2 *= -1;
-  }
 }
