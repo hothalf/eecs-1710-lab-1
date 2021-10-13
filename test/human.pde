@@ -1,20 +1,38 @@
 class human {
   
+  PImage human;
+  PVector position;
+  float triggerdistance = 25;
   
   
   human(float x, float y) {
+    position = new PVector(x, y);
     
-    human = loadImage("human.png");
+    human = loadImage("human.jpg");
     human.resize(75,75);
     
     
   }
   
-  
-  void update() { // updates
+  void reproduce(){
+    //humans.add();  
   }
+  
+  void update() { // updates check distances of it from other humans and demon
+    
+    
+   
+  }
+  
+  
   void draw() {
-    image(human.png,position.x,[psotopm.y);
+    ellipseMode(CENTER);
+    rectMode(CENTER);
+    imageMode(CENTER);
+    
+    image(human, position.x, position.y);
+    
+    
   }
   
   void run() {
