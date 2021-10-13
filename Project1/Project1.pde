@@ -3,8 +3,9 @@ float x1, y1, x2, y2, x3,x4,y3,y4;
 float speedX1, speedX2;
 int humanNum = 10;
 
-ArrayList<human> humans = new ArrayList<human>(=);
+ArrayList<human> humans = new ArrayList<human>();
 
+demon demon = new demon (mouseX,mouseY);
 
 void setup() {
   size(1000, 800, P2D);
@@ -13,6 +14,7 @@ void setup() {
   
   for (int i=0; i<humanNum; i++) {
     humans.add(new human(random(width), random(height)));
+    
   }
   
   
@@ -27,5 +29,11 @@ void draw() {
   tint(255, 127);
   image(hell, x2, y2);
   
+  for (int i=0; i<humans.size(); i++) {
+    human human1 = humans.get(i);
+    human1.run();
+  }
+  
+  demon.run();
 
 }

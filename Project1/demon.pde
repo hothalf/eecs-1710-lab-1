@@ -6,33 +6,27 @@ class demon {
   
   
     demon(float x, float y) {
-    position = new PVector(x, y);
-    pickEscapeTarget();
-    
+
     demon = loadImage("demon.png");
     demon.resize(100,100);
-
-    
-    faceCurrent = face01;
   }
+  
   
   
   void update() {
     // TODO
+    
   }
   
   void draw() {
-    if (alive) {
-      ellipseMode(CENTER);
-      noStroke();
-      fill(0);
-      ellipse(position.x, position.y, sizeVal, sizeVal);
+    image(demon,mouseX,mouseY);
     }
-  }
+  
   
   void run() {
     update();
     draw();
   }
   
+ 
 }
