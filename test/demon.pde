@@ -10,13 +10,14 @@ class demon {
   // This is the constructor; it needs to have the same name as the class.
   demon(float x, float y) {
 
+    position = new PVector (x,y);
     demon = loadImage("demon.png");
     demon.resize(100,100);
     
   }
   
   void update() {
-    PVector mousePos = new PVector(mouseX, mouseY);
+    
 
   }
   
@@ -35,6 +36,9 @@ class demon {
     draw();
   }
   
+  PVector getposition(){
+    return position;
+  }
 
   
 }

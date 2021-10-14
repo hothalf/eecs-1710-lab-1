@@ -3,14 +3,14 @@ int numhumans = 10;
 
 PImage hell;
 
-demon[] demons = new demon[numdemon];
+ArrayList<demon> demons = new ArrayList<demon>();
 ArrayList<human> humans = new ArrayList<human>();
 
 void setup() { 
   size(800, 600, P2D);
   
-  for (int i=0; i<demons.length; i++) {
-    demons[i] = new demon(random(width), random(height));
+  for (int i=0; i<numdemon; i++) {
+    demons.add(new demon(random(width), random(height)));
   }
   for (int i=0; i<numhumans; i++) {
     humans.add(new human(random(width), random(height)));
@@ -27,7 +27,7 @@ void draw() {
     humans.get(i).run();
   }
   
-  for (int i=0; i<demons.length; i++) {
-    demons[i].run();
+  for (int i=0; i<demons.size(); i++) {
+    demons.get(i).run();
   }
 }
