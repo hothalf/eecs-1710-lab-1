@@ -1,26 +1,11 @@
 class demon {
 
-  boolean debug = true;
   PVector position, target;
   PImage demon;
-  float margin = 50;
-  int foodChoice;
+
   
-  boolean isBothered = false;
-  int botheredMarkTime = 0;
-  int botheredTimeout = 3000; // Processing measures time in milliseconds
-  float botheredSpread = 5;
-  
-  boolean isBlinking = false;
-  int blinkMarkTime = 0;
-  int blinkTimeout = 4000;
-  int blinkDuration = 250;
-  
-  boolean isHunting = false;
-  
-  float triggerDistance1 = 100;
-  float triggerDistance2 = 25;
-  float movementSpeed = 0.08;
+  float triggerDistance1 = 50;
+
     
   // This is the constructor; it needs to have the same name as the class.
   demon(float x, float y) {
@@ -41,7 +26,7 @@ class demon {
     imageMode(CENTER);
   
     image(demon, mouseX,mouseY);
-  
+    ellipse(mouseX, mouseY, triggerDistance1*2, triggerDistance1*2);
     
   }
   

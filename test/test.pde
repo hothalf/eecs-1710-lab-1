@@ -15,12 +15,15 @@ void setup() {
   for (int i=0; i<numhumans; i++) {
     humans.add(new human(random(width), random(height)));
 }
+
+  hell = loadImage("hell.jpg");
+  hell.resize(800,600);
 }
 
 void draw() {
-  background(127);
+  background(hell);
   
-  for (int i=0; i<numhumans; i++) {
+  for (int i=0; i<humans.size(); i++) {
     humans.get(i).run();
   }
   
