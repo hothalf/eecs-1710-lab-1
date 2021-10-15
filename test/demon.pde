@@ -36,9 +36,6 @@ class demon {
     draw();
   }
   
-  PVector getposition(){
-    return position;
-  }
 
   
 }
