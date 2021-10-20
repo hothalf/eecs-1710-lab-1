@@ -1,39 +1,33 @@
-PImage hell ;
-float x1, y1, x2, y2, x3,x4,y3,y4;
-float speedX1, speedX2;
-int humanNum = 10;
+int numdemon = 1;
+int numhumans = 10;
 
+PImage hell;
+
+ArrayList<demon> demons = new ArrayList<demon>();
 ArrayList<human> humans = new ArrayList<human>();
 
-demon demon = new demon (mouseX,mouseY);
+void setup() { 
+  size(800, 600, P2D);
 
-void setup() {
-  size(1000, 800, P2D);
-  hell = loadImage("hell.jpg");
-  hell.resize(hell.width * (height / hell.height), height);
-  
-  for (int i=0; i<humanNum; i++) {
-    humans.add(new human(random(width), random(height)));
-    
+  for (int i=0; i<numdemon; i++) {
+    demons.add(new demon(random(width), random(height)));
   }
-  
-  
-  
+  for (int i=0; i<numhumans; i++) {
+    humans.add(new human(random(width), random(height)));
+  }
 
-
+  hell = loadImage("hell.jpg");
+  hell.resize(800, 600);
 }
 
 void draw() {
-  background(0, 127, 255);
-    
-  tint(255, 127);
-  image(hell, x2, y2);
-  
-  for (int i=0; i<humans.size(); i++) {
-    human human1 = humans.get(i);
-    human1.run();
-  }
-  
-  demon.run();
+  background(hell);
 
+  for (int i=0; i<humans.size(); i++) {
+    humans.get(i).run(humans.get(i));
+  }
+
+  for (int i=0; i<demons.size(); i++) {
+    demons.get(i).run();
+  }
 }
