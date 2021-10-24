@@ -1,20 +1,42 @@
-float gravity = 0.4;
-float gravityDelta = 0.01;
-float friction = 0.99;
-float floor;
-ArrayList<Targets> targets = new ArrayList<Targets>();
-Targets target;
 
+
+int targetinterval = 1000;
+int markTime = 0;
+
+PImage hell;
+ArrayList<Targets> targets;
+
+PFont font;
+int fontSize = 55;
 void setup() {
   size(800, 600, P2D);
-  floor = height;
+  hell = loadImage("hell.jpg");
+  hell.resize(800, 600);
+
+  font = createFont("Arial", fontSize);
+  textFont(font, fontSize);
   
-  target = new Targets(width/2, height - 100);
+  targets = new ArrayList<Targets>();
 }
 
 void draw() {
-  background(127);
-    
-  target.run();
-  
+  background(hell);
+
+  int t = millis();
+
+  if (t > markTime + targetinterval) {
+    targets.add(new Targets(random(width), random(height)));
+    markTime = t;
+  }
+
+
+  for (int i=targets.size()-1; i>=0; i--) {
+    Targets demon = targets.get(i);
+
+    if (demon.alive) {
+      demon.run();
+    } else {
+      targets.remove(i);
+    }
+  }
 }
