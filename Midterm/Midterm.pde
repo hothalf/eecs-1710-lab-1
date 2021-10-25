@@ -8,6 +8,9 @@ ArrayList<Targets> targets;
 
 PFont font;
 int fontSize = 55;
+int demons_killed = 0;
+
+
 void setup() {
   size(800, 600, P2D);
   hell = loadImage("hell.jpg");
@@ -27,6 +30,12 @@ void draw() {
   if (t > markTime + targetinterval) {
     targets.add(new Targets(random(width), random(height)));
     markTime = t;
+    if (t/1000>15){
+      targets.add(new Targets(random(width), random(height)));
+    }
+    if(t/1000>35){
+     targets.add(new Targets(random(width), random(height))); 
+    }
   }
 
 
@@ -39,4 +48,13 @@ void draw() {
       targets.remove(i);
     }
   }
+  
+  fill(255);
+  text(t/1000, 10, fontSize);
+  text(demons_killed, 150, fontSize);
+  if(t/1000 == 60){
+    text("Game Over", width/2, fontSize);
+    exit();
+  }
+  
 }
