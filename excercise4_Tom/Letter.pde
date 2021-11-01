@@ -1,18 +1,17 @@
-class Letter{
- 
+class Letter {
   
-    PShape s;
+  PShape s;
   PVector position;
   PVector[] vertices;
   float spread = 0.2;
   
   Letter(PShape _s, float x, float y) {
     s = _s;
-    position = new PVector(x, y, random(-10, 10));
+    position = new PVector(x, y);
     vertices = new PVector[s.getVertexCount()];
   }
   
-   void update() {
+  void update() {
     for (int i=0; i<vertices.length; i++) {
       vertices[i] = s.getVertex(i);
       vertices[i].add(new PVector(random(-spread, spread), random(-spread, spread)));
@@ -29,11 +28,5 @@ class Letter{
     update();
     draw();
   }
-  
-
-  
-  
-  
-  
   
 }

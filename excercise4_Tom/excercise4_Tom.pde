@@ -1,5 +1,5 @@
 LetterGenerator lg;
-String input ;
+String input = "dvmp";
 
 void setup() {
   size(800, 600, P2D);
@@ -11,11 +11,3 @@ void draw() {
   
   lg.run(); 
 }
-
-//checks key typed https://processing.org/examples/charactersstrings.html
-void keyTyped() {
-  if ((key >= 'A' && key <= 'z') || key == ' ') {
-    inputKey = str(key);
-    letters.add(new Letter(inputKey, x, y));
-    
-  }
