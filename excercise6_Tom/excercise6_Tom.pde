@@ -1,21 +1,24 @@
-
-import processing.video.*/
-
-Movie movie ;
-Capture capture
-
-
-
-void setup(){
+void setup() {
+  size(640, 480, FX2D);
   
- size(640,480, P3D);
- cameraPos = new PVector(width, 0, 100);
- capture = new Capture(this, width, height);
- capture.list();
- capture.start();
+  setupCapture(0);  
 }
 
-
-  void draw(){
+void draw() {  
+  scale(2);
+  background(0);
   
+  if (videoImg != null) {
+    if (openCV == null) {
+      setupOpenCV(videoImg);
+    } else {
+      updateOpenCV(videoImg);
+      image(videoImg, 0, 0);
+    }
+  }
+  
+  if (ps != null) {
+    shape(ps);
+  }
+  surface.setTitle("" + frameRate);
 }
