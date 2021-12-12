@@ -1,16 +1,60 @@
-PImage red, img;
+import gifAnimation.*;
 
+PImage amongus, boruto, img;
+ArrayList<Integer> rlist = new ArrayList<Integer>();
+ArrayList<Integer> glist = new ArrayList<Integer>();
+ArrayList<Integer> blist = new ArrayList<Integer>();
+int amongus_size = 12;
+int counter;
 
 void setup(){
-  size(250,250,P2D);
-  img = loadImage("amongus.png");
+  size(1000,1000,P2D);
+  amongus = loadImage("white.png");
+  amongus.resize(amongus_size,amongus_size);
+  amongus.loadPixels();
   
-  img.loadPixels();
+  boruto = loadImage("boruto.png");
+  boruto.resize(width,height);
+  boruto.loadPixels();
   
+  for(int i=0; i<=width; i+=amongus_size ){
+   for(int j=0; j<=height; j+=amongus_size){
+    img = boruto.get(i,j,amongus_size,amongus_size);
+    img.loadPixels();
+    int r =0, g=0, b = 0;
+    
+    for(int k = 0; k<amongus_size*amongus_size; k++){
+      color c = img.pixels[k];
+      r += red(c);
+      g += green(c);
+      b += blue(c);   
+      
+ }
+
+
+    rlist.add(r/(amongus_size*amongus_size));
+    glist.add(g/(amongus_size*amongus_size));
+    blist.add(b/(amongus_size*amongus_size));
+   }
+  }
+  
+   counter =0;
+ for(int i=0; i<=width; i +=amongus_size ){
+   for(int j=0; j<=height; j+=amongus_size){
+     //color c = get(i,j);
+
+     
+     tint((float)rlist.get(counter), (float)glist.get(counter),(float)blist.get(counter));
+     
+     counter++;
+     image(amongus,i,j);
+   }
+ }
 }  
 
 void draw(){
- img(img, 0 ,0);
+ 
+
  
  
 }
