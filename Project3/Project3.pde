@@ -1,18 +1,20 @@
 import gifAnimation.*;
 
-PImage amongus, boruto, img;
+PImage boruto, img;
 ArrayList<Integer> rlist = new ArrayList<Integer>();
 ArrayList<Integer> glist = new ArrayList<Integer>();
 ArrayList<Integer> blist = new ArrayList<Integer>();
 int amongus_size = 12;
 int counter;
 
+Gif amongus ;
+
 void setup(){
   size(1000,1000,P2D);
-  amongus = loadImage("white.png");
-  amongus.resize(amongus_size,amongus_size);
-  amongus.loadPixels();
+  amongus = new Gif(this, "white.gif");
+  amongus.play();
   
+    
   boruto = loadImage("boruto.png");
   boruto.resize(width,height);
   boruto.loadPixels();
@@ -38,7 +40,12 @@ void setup(){
    }
   }
   
-   counter =0;
+ 
+}  
+
+void draw(){
+ 
+ counter =0;
  for(int i=0; i<=width; i +=amongus_size ){
    for(int j=0; j<=height; j+=amongus_size){
      //color c = get(i,j);
@@ -47,14 +54,9 @@ void setup(){
      tint((float)rlist.get(counter), (float)glist.get(counter),(float)blist.get(counter));
      
      counter++;
-     image(amongus,i,j);
+     image(amongus,i,j,amongus_size,amongus_size);
    }
  }
-}  
-
-void draw(){
- 
-
  
  
 }
