@@ -14,7 +14,7 @@ void setup(){
   amongus = new Gif(this, "white.gif");
   amongus.play();
   
-    
+  
   boruto = loadImage("boruto.png");
   boruto.resize(width,height);
   boruto.loadPixels();
